@@ -156,7 +156,7 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `compare_test_runs(run_id_1, run_id_2)` - Compare two test runs
 - `get_failing_tests(suite)` - List currently failing tests
 
-### 🔍 Cypress Server
+###  Cypress Server
 
 **Purpose:** Cypress end-to-end testing integration
 
@@ -165,7 +165,7 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `open_cypress()` - Open Cypress Test Runner
 - `get_cypress_results()` - Get latest test run results
 
-### 📡 API Testing Server
+###  API Testing Server
 
 **Purpose:** REST API testing and validation
 
@@ -394,7 +394,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Transform your IDE into an intelligent testing agent.** 🚀
+**Transform your IDE into an intelligent testing agent.** 
 
-**Built for the age of agentic testing.** 🤖
+**Built for the age of agentic testing.** 
 
