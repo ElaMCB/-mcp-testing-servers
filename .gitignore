@@ -7,6 +7,10 @@ pnpm-lock.yaml
 # Build output
 dist/
 *.tsbuildinfo
+examples/**/*.js
+examples/**/*.d.ts
+examples/**/*.js.map
+examples/**/*.d.ts.map
 
 # Testing
 coverage/
