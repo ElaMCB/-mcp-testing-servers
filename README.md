@@ -4,7 +4,9 @@
 
 [![MCP Protocol](https://img.shields.io/badge/MCP-Protocol-blue)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js CI](https://img.shields.io/badge/Node.js-16%2B-green)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green)](https://nodejs.org/)
+[![CI](https://github.com/ElaMCB/mcp-testing-servers/workflows/CI/badge.svg)](https://github.com/ElaMCB/mcp-testing-servers/actions)
+[![MCP Spec](https://img.shields.io/badge/MCP_Spec-2025-blue)](https://modelcontextprotocol.io)
 
 > **Enables agentic testing in MCP-native IDEs** like Cursor and GitHub Codespaces. Transform your AI assistant into an intelligent testing agent that can create, execute, and maintain tests autonomously.
 
@@ -24,9 +26,11 @@ Read our [research paper](https://elamcb.github.io/research/notebooks/mcp-softwa
 
 ### Prerequisites
 
-- Node.js 16+
-- An MCP-native IDE (Cursor, Codespaces, or compatible)
+- Node.js 18+ (LTS recommended)
+- An MCP-native IDE (Cursor, GitHub Codespaces, or compatible)
 - Testing framework installed (Playwright, Selenium, etc.)
+
+> **💡 Quick Start**: Try it instantly in [GitHub Codespaces](https://github.com/codespaces) - no local setup required!
 
 ### Installation
 
@@ -38,8 +42,11 @@ cd mcp-testing-servers
 # Install dependencies
 npm install
 
-# Install Playwright (for Playwright MCP server)
-npm install playwright
+# Install Playwright browsers
+npx playwright install chromium
+
+# Build the project
+npm run build
 ```
 
 ### Configure in Your IDE
@@ -54,7 +61,7 @@ npm install playwright
   "mcpServers": {
     "playwright": {
       "command": "node",
-      "args": ["./servers/playwright/server.js"],
+      "args": ["./dist/servers/playwright/server.js"],
       "env": {
         "PLAYWRIGHT_BROWSERS_PATH": "0"
       }
@@ -71,25 +78,36 @@ Add to `.vscode/settings.json`:
   "mcp.servers": {
     "playwright": {
       "command": "node",
-      "args": ["./servers/playwright/server.js"]
+      "args": ["./dist/servers/playwright/server.js"],
+      "env": {
+        "PLAYWRIGHT_BROWSERS_PATH": "0"
+      }
     }
   }
 }
 ```
 
+> **📚 Need help?** Check out our [Quick Start Guide](examples/quick-start.md) for detailed setup instructions.
+
 ## Available MCP Servers
 
-###  Playwright Server
+###  ✅ Playwright Server
+
+**Status:** ✅ **Implemented and Ready**
 
 **Purpose:** Browser automation and end-to-end testing
 
 **Tools:**
-- `launch_browser(url)` - Launch browser and navigate to URL
+- `launch_browser(url, headless?, browser?)` - Launch browser and navigate to URL
 - `get_page_content(session_id)` - Get current page DOM and state
-- `perform_action(session_id, action, selector)` - Click, fill, select elements
+- `perform_action(session_id, action, selector, value?, key?)` - Click, fill, select elements
 - `execute_test_script(session_id, code)` - Run Playwright code in live context
-- `capture_screenshot(session_id)` - Take screenshots for debugging
+- `capture_screenshot(session_id, fullPage?)` - Take screenshots for debugging
 - `run_test_file(file_path)` - Execute a Playwright test file
+- `close_session(session_id)` - Close browser session and clean up
+- `list_sessions()` - List all active browser sessions
+
+**Browser Support:** Chromium, Firefox, WebKit
 
 **Example Usage:**
 ```javascript
@@ -100,7 +118,9 @@ Add to `.vscode/settings.json`:
 // 4. Generate tests based on actual UI structure
 ```
 
-### Selenium Server
+### 🚧 Selenium Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** Cross-browser Selenium automation
 
@@ -110,7 +130,9 @@ Add to `.vscode/settings.json`:
 - `find_elements(selector)` - Locate page elements
 - `execute_script(js_code)` - Run JavaScript in browser context
 
-###  Jira Server
+### 🚧 Jira Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** Autonomous bug filing and issue management
 
@@ -128,7 +150,9 @@ export JIRA_EMAIL="your-email@example.com"
 export JIRA_API_TOKEN="your-api-token"
 ```
 
-###  Azure DevOps (ADO) Server
+### 🚧 Azure DevOps (ADO) Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** Work item management and build integration
 
@@ -146,7 +170,9 @@ export AZURE_DEVOPS_PROJECT="your-project"
 export AZURE_DEVOPS_PAT="your-personal-access-token"
 ```
 
-### Test Results Server
+### 🚧 Test Results Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** Aggregate and analyze test execution results
 
@@ -156,7 +182,9 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `compare_test_runs(run_id_1, run_id_2)` - Compare two test runs
 - `get_failing_tests(suite)` - List currently failing tests
 
-###  Cypress Server
+### 🚧 Cypress Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** Cypress end-to-end testing integration
 
@@ -165,7 +193,9 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `open_cypress()` - Open Cypress Test Runner
 - `get_cypress_results()` - Get latest test run results
 
-###  API Testing Server
+### 🚧 API Testing Server
+
+**Status:** 🚧 **Planned**
 
 **Purpose:** REST API testing and validation
 
@@ -328,8 +358,6 @@ npm test
 
 # Test specific server
 npm test -- playwright
-npm test -- jira
-npm test -- azure-devops
 
 # Run with coverage
 npm run test:coverage
@@ -337,16 +365,30 @@ npm run test:coverage
 
 ##  Documentation
 
-- [MCP Protocol Specification](https://modelcontextprotocol.io)
-- [Research Paper: MCP in Software Testing](https://elamcb.github.io/research/notebooks/mcp-software-testing.html)
-- [Playwright Documentation](https://playwright.dev)
-- [Jira REST API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/)
-- [Azure DevOps REST API](https://learn.microsoft.com/en-us/rest/api/azure/devops/)
+### Getting Started
+- [Quick Start Guide](examples/quick-start.md) - Get up and running in 5 minutes
+- [Example Usage](examples/basic-usage.ts) - Code examples and patterns
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute to the project
+
+### MCP Protocol
+- [MCP Protocol Specification (2025)](https://modelcontextprotocol.io) - Official MCP spec
+- [MCP SDK Documentation](https://github.com/modelcontextprotocol/typescript-sdk) - TypeScript SDK reference
+
+### Testing Tools
+- [Playwright Documentation](https://playwright.dev) - Browser automation guide
+- [Jira REST API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/) - Jira API reference
+- [Azure DevOps REST API](https://learn.microsoft.com/en-us/rest/api/azure/devops/) - ADO API reference
+
+### Research & Resources
+- [Research Paper: MCP in Software Testing](https://elamcb.github.io/research/notebooks/mcp-software-testing.html) - Academic research on MCP for testing
 
 ##  Contributing
 
 We welcome contributions! This is foundational infrastructure for agentic testing.
 
+See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
+
+**Quick Contribution Steps:**
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/new-mcp-server`)
 3. Implement your MCP server following the existing patterns
@@ -355,24 +397,46 @@ We welcome contributions! This is foundational infrastructure for agentic testin
 
 ### Adding a New MCP Server
 
-1. Create directory: `servers/your-server/`
-2. Implement server following MCP protocol
-3. Export `ToolsMCPServer` class
-4. Add tests in `servers/your-server/__tests__/`
+1. Create directory: `src/servers/your-server/`
+2. Implement server following MCP protocol (see Playwright server as example)
+3. Export server class
+4. Add tests in `src/servers/your-server/__tests__/`
 5. Document tools in README
+6. Update CI/CD if needed
 
 ##  Roadmap
 
-- [x] Playwright MCP Server
-- [x] Jira MCP Server
-- [x] Azure DevOps MCP Server
-- [ ] Selenium MCP Server
-- [ ] Cypress MCP Server
-- [ ] API Testing MCP Server
-- [ ] Test Results Aggregator Server
-- [ ] Performance Testing Server
-- [ ] Security Scanning Server
-- [ ] Database Testing Server
+### ✅ Implemented
+- [x] Playwright MCP Server - Full implementation with 8 tools
+- [x] TypeScript build system and configuration
+- [x] Test suite infrastructure
+- [x] CI/CD pipeline (GitHub Actions)
+- [x] GitHub Codespaces configuration
+- [x] Documentation and examples
+
+### 🚧 In Progress
+- [ ] Enhanced error handling and retry logic
+- [ ] Session persistence and recovery
+- [ ] Performance optimizations
+
+### 📋 Planned
+- [ ] Jira MCP Server - Autonomous bug filing
+- [ ] Azure DevOps MCP Server - Work item management
+- [ ] Selenium MCP Server - Cross-browser automation
+- [ ] Cypress MCP Server - Cypress integration
+- [ ] API Testing Server - REST API validation
+- [ ] Test Results Aggregator Server - Results analysis
+- [ ] Performance Testing Server - Load testing
+- [ ] Security Scanning Server - Security testing
+- [ ] Database Testing Server - Database validation
+
+### 🔮 Future Features (2025 Trends)
+- [ ] Agentic Workflows - Autonomous test generation
+- [ ] Visual AI Integration - AI-powered screenshot comparison
+- [ ] Multi-Agent Orchestration - Coordinated testing agents
+- [ ] OAuth 2.1 Support - Enhanced security
+- [ ] Async Tasks - Long-running test execution
+- [ ] Stateless Architecture - Improved scalability
 
 ## 📄 License
 
@@ -392,9 +456,44 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - [Playwright Team](https://playwright.dev) for excellent browser automation
 - [Atlassian](https://atlassian.com) and [Microsoft](https://microsoft.com) for API access
 
+## 🚀 Try It Now
+
+### Option 1: GitHub Codespaces (Recommended)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?template_repository=ElaMCB/mcp-testing-servers)
+
+Click the badge above to launch a pre-configured environment instantly!
+
+### Option 2: Local Setup
+```bash
+git clone https://github.com/ElaMCB/mcp-testing-servers.git
+cd mcp-testing-servers
+npm install
+npx playwright install chromium
+npm run build
+```
+
+### Option 3: Use as Template
+Use this repository as a template for your own MCP servers!
+
 ---
+
+## 📊 Project Status
+
+**Current Version:** 1.0.0  
+**MCP Spec Compliance:** 2025  
+**Last Updated:** December 2024  
+**Active Development:** ✅ Yes
 
 **Transform your IDE into an intelligent testing agent.** 
 
-**Built for the age of agentic testing.** 
+**Built for the age of agentic testing.**
 
+---
+
+## 🤝 Community
+
+- 💬 [GitHub Discussions](https://github.com/ElaMCB/mcp-testing-servers/discussions) - Ask questions and share ideas
+- 🐛 [Issue Tracker](https://github.com/ElaMCB/mcp-testing-servers/issues) - Report bugs and request features
+- 📝 [Contributing Guide](CONTRIBUTING.md) - Learn how to contribute
+
+**Star this repo** ⭐ if you find it useful!

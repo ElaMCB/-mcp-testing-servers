@@ -1,0 +1,55 @@
+{
+  "name": "mcp-testing-servers",
+  "version": "1.0.0",
+  "description": "Collection of Model Context Protocol (MCP) servers for software testing tools and quality assurance",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:playwright": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=playwright",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "start:playwright": "node dist/servers/playwright/server.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "testing",
+    "playwright",
+    "selenium",
+    "jira",
+    "azure-devops",
+    "agentic-testing",
+    "ai-testing",
+    "automation"
+  ],
+  "author": "Ela MCB",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElaMCB/mcp-testing-servers.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "eslint": "^9.18.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  }
+}
+
