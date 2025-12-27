@@ -5,11 +5,9 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
-  Tool,
 } from '@modelcontextprotocol/sdk/types.js';
 import { chromium, firefox, webkit, Browser, BrowserContext, Page } from 'playwright';
 import * as fs from 'fs/promises';
-import * as path from 'path';
 
 interface BrowserSession {
   browser: Browser;
@@ -201,19 +199,33 @@ class PlaywrightMCPServer {
       try {
         switch (name) {
           case 'launch_browser':
-            return await this.handleLaunchBrowser(args as any);
+            return await this.handleLaunchBrowser(
+              args as Parameters<typeof this.handleLaunchBrowser>[0]
+            );
           case 'get_page_content':
-            return await this.handleGetPageContent(args as any);
+            return await this.handleGetPageContent(
+              args as Parameters<typeof this.handleGetPageContent>[0]
+            );
           case 'perform_action':
-            return await this.handlePerformAction(args as any);
+            return await this.handlePerformAction(
+              args as Parameters<typeof this.handlePerformAction>[0]
+            );
           case 'execute_test_script':
-            return await this.handleExecuteTestScript(args as any);
+            return await this.handleExecuteTestScript(
+              args as Parameters<typeof this.handleExecuteTestScript>[0]
+            );
           case 'capture_screenshot':
-            return await this.handleCaptureScreenshot(args as any);
+            return await this.handleCaptureScreenshot(
+              args as Parameters<typeof this.handleCaptureScreenshot>[0]
+            );
           case 'run_test_file':
-            return await this.handleRunTestFile(args as any);
+            return await this.handleRunTestFile(
+              args as Parameters<typeof this.handleRunTestFile>[0]
+            );
           case 'close_session':
-            return await this.handleCloseSession(args as any);
+            return await this.handleCloseSession(
+              args as Parameters<typeof this.handleCloseSession>[0]
+            );
           case 'list_sessions':
             return await this.handleListSessions();
           default:
@@ -334,7 +346,7 @@ class PlaywrightMCPServer {
     const { page } = session;
     const { action, selector, value, key } = args;
 
-    let result: any = { success: true };
+    let result: { success: boolean; message?: string } = { success: true };
 
     switch (action) {
       case 'click':
@@ -394,8 +406,7 @@ class PlaywrightMCPServer {
 
     try {
       const result = await page.evaluate((code) => {
-        // eslint-disable-next-line no-eval
-        return eval(code);
+        return Function(`"use strict"; return (${code})`)();
       }, args.code);
 
       return {
@@ -566,7 +577,9 @@ class PlaywrightMCPServer {
 // Start the server if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new PlaywrightMCPServer();
-  server.run().catch(console.error);
+  server.run().catch((error) => {
+    console.error(error);
+  });
 }
 
 export { PlaywrightMCPServer };
