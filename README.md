@@ -30,7 +30,7 @@ Read our [research paper](https://elamcb.github.io/research/notebooks/mcp-softwa
 - An MCP-native IDE (Cursor, GitHub Codespaces, or compatible)
 - Testing framework installed (Playwright, Selenium, etc.)
 
-> **💡 Quick Start**: Try it instantly in [GitHub Codespaces](https://github.com/codespaces) - no local setup required!
+> **Quick Start**: Try it instantly in [GitHub Codespaces](https://github.com/codespaces) - no local setup required!
 
 ### Installation
 
@@ -87,13 +87,13 @@ Add to `.vscode/settings.json`:
 }
 ```
 
-> **📚 Need help?** Check out our [Quick Start Guide](examples/quick-start.md) for detailed setup instructions.
+> **Need help?** Check out our [Quick Start Guide](examples/quick-start.md) for detailed setup instructions.
 
 ## Available MCP Servers
 
-###  ✅ Playwright Server
+### Playwright Server
 
-**Status:** ✅ **Implemented and Ready**
+**Status:** **Implemented and Ready**
 
 **Purpose:** Browser automation and end-to-end testing
 
@@ -118,9 +118,9 @@ Add to `.vscode/settings.json`:
 // 4. Generate tests based on actual UI structure
 ```
 
-### 🚧 Selenium Server
+### Selenium Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** Cross-browser Selenium automation
 
@@ -130,9 +130,9 @@ Add to `.vscode/settings.json`:
 - `find_elements(selector)` - Locate page elements
 - `execute_script(js_code)` - Run JavaScript in browser context
 
-### 🚧 Jira Server
+### Jira Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** Autonomous bug filing and issue management
 
@@ -150,9 +150,9 @@ export JIRA_EMAIL="your-email@example.com"
 export JIRA_API_TOKEN="your-api-token"
 ```
 
-### 🚧 Azure DevOps (ADO) Server
+### Azure DevOps (ADO) Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** Work item management and build integration
 
@@ -170,9 +170,9 @@ export AZURE_DEVOPS_PROJECT="your-project"
 export AZURE_DEVOPS_PAT="your-personal-access-token"
 ```
 
-### 🚧 Test Results Server
+### Test Results Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** Aggregate and analyze test execution results
 
@@ -182,9 +182,9 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `compare_test_runs(run_id_1, run_id_2)` - Compare two test runs
 - `get_failing_tests(suite)` - List currently failing tests
 
-### 🚧 Cypress Server
+### Cypress Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** Cypress end-to-end testing integration
 
@@ -193,9 +193,9 @@ export AZURE_DEVOPS_PAT="your-personal-access-token"
 - `open_cypress()` - Open Cypress Test Runner
 - `get_cypress_results()` - Get latest test run results
 
-### 🚧 API Testing Server
+### API Testing Server
 
-**Status:** 🚧 **Planned**
+**Status:** **Planned**
 
 **Purpose:** REST API testing and validation
 
@@ -406,7 +406,7 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 
 ##  Roadmap
 
-### ✅ Implemented
+### Implemented
 - [x] Playwright MCP Server - Full implementation with 8 tools
 - [x] TypeScript build system and configuration
 - [x] Test suite infrastructure
@@ -414,12 +414,12 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 - [x] GitHub Codespaces configuration
 - [x] Documentation and examples
 
-### 🚧 In Progress
+### In Progress
 - [ ] Enhanced error handling and retry logic
 - [ ] Session persistence and recovery
 - [ ] Performance optimizations
 
-### 📋 Planned
+### Planned
 - [ ] Jira MCP Server - Autonomous bug filing
 - [ ] Azure DevOps MCP Server - Work item management
 - [ ] Selenium MCP Server - Cross-browser automation
@@ -430,7 +430,7 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 - [ ] Security Scanning Server - Security testing
 - [ ] Database Testing Server - Database validation
 
-### 🔮 Future Features (2025 Trends)
+### Future Features (2025 Trends)
 - [ ] Agentic Workflows - Autonomous test generation
 - [ ] Visual AI Integration - AI-powered screenshot comparison
 - [ ] Multi-Agent Orchestration - Coordinated testing agents
@@ -438,7 +438,7 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 - [ ] Async Tasks - Long-running test execution
 - [ ] Stateless Architecture - Improved scalability
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
@@ -456,7 +456,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - [Playwright Team](https://playwright.dev) for excellent browser automation
 - [Atlassian](https://atlassian.com) and [Microsoft](https://microsoft.com) for API access
 
-## 🚀 Try It Now
+## Try It Now
 
 ### Option 1: GitHub Codespaces (Recommended)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?template_repository=ElaMCB/mcp-testing-servers)
@@ -477,12 +477,12 @@ Use this repository as a template for your own MCP servers!
 
 ---
 
-## 📊 Project Status
+## Project Status
 
 **Current Version:** 1.0.0  
 **MCP Spec Compliance:** 2025  
 **Last Updated:** December 2024  
-**Active Development:** ✅ Yes
+**Active Development:** Yes
 
 **Transform your IDE into an intelligent testing agent.** 
 
@@ -490,10 +490,8 @@ Use this repository as a template for your own MCP servers!
 
 ---
 
-## 🤝 Community
+## Community
 
-- 💬 [GitHub Discussions](https://github.com/ElaMCB/mcp-testing-servers/discussions) - Ask questions and share ideas
-- 🐛 [Issue Tracker](https://github.com/ElaMCB/mcp-testing-servers/issues) - Report bugs and request features
-- 📝 [Contributing Guide](CONTRIBUTING.md) - Learn how to contribute
-
-**Star this repo** ⭐ if you find it useful!
+- [GitHub Discussions](https://github.com/ElaMCB/mcp-testing-servers/discussions) - Ask questions and share ideas
+- [Issue Tracker](https://github.com/ElaMCB/mcp-testing-servers/issues) - Report bugs and request features
+- [Contributing Guide](CONTRIBUTING.md) - Learn how to contribute
