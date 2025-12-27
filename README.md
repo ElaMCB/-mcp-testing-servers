@@ -438,18 +438,6 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 - [ ] Async Tasks - Long-running test execution
 - [ ] Stateless Architecture - Improved scalability
 
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-##  Author
-
-**Ela MCB** - AI-First Quality Engineer
-
-- Portfolio: [https://elamcb.github.io](https://elamcb.github.io)
-- Research: [https://elamcb.github.io/research](https://elamcb.github.io/research)
-- GitHub: [https://github.com/ElaMCB](https://github.com/ElaMCB)
-
 ## Acknowledgments
 
 - [Anthropic](https://anthropic.com) for the Model Context Protocol
@@ -495,3 +483,44 @@ Use this repository as a template for your own MCP servers!
 - [GitHub Discussions](https://github.com/ElaMCB/mcp-testing-servers/discussions) - Ask questions and share ideas
 - [Issue Tracker](https://github.com/ElaMCB/mcp-testing-servers/issues) - Report bugs and request features
 - [Contributing Guide](CONTRIBUTING.md) - Learn how to contribute
+
+---
+
+<div align="center">
+
+### About
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║         MCP Testing Servers - Agentic Testing Framework      ║
+║                                                              ║
+║    Transform your IDE into an intelligent testing agent      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+**Created by Ela MCB** | AI-First Quality Engineer
+
+[Portfolio](https://elamcb.github.io) • [Research](https://elamcb.github.io/research) • [GitHub](https://github.com/ElaMCB)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  License: MIT                                                │
+│  See LICENSE file for full details                           │
+│                                                              │
+│  Copyright (c) 2025 ElaMereanu                               │
+│                                                              │
+│  Permission is hereby granted, free of charge, to any      │
+│  person obtaining a copy of this software and associated    │
+│  documentation files (the "Software"), to deal in the      │
+│  Software without restriction, including without limitation  │
+│  the rights to use, copy, modify, merge, publish,           │
+│  distribute, sublicense, and/or sell copies of the          │
+│  Software, and to permit persons to whom the Software is  │
+│  furnished to do so, subject to the conditions in the       │
+│  LICENSE file.                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+</div>
